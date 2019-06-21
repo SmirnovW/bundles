@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bundles</title>
+</head>
+<body>
+
+    <!-- Bundles injecting, used to avoid downloading of both modern and fallback bundles on safari browsers -->
+    <!-- Safari 10 fix for "nomodule" feature. More: https://gist.github.com/anilanar/5be4897eb2ef261ff53a778e3fe5f2d3 -->
+    <script>
+        // matrix of script sources. rows will be executed in order.
+        // first column is ES6, the second is ES5.
+        window.__SCRIPTS__ = [
+            ['<%= htmlWebpackPlugin.files.chunks.bundle.entry %>', '<%= htmlWebpackPlugin.options.fallbackBundle %>']
+        ];
+
+        !function(){"use strict";function e(e){n(),e.target===f?(e.preventDefault(),c(a)):e.target===l?(e.preventDefault(),c(d)):c(d),t()}function t(){document.addEventListener("beforeload",e,!0)}function n(){document.removeEventListener("beforeload",e,!0)}function o(e,t){e.type=t,e.src=".",document.head.appendChild(e),e.remove()}function c(e){if(m!==!0){m=!0;for(var t=window.__SCRIPTS__,n=0;n<t.length;n++)r(t[n][e===d?1:0])}}function r(e){var t=document.createElement("script");t.src=e,t.async=!1,t.type=u,document.body.appendChild(t)}var a=1,d=2,i="module",u="text/javascript",f=document.createElement("script"),l=document.createElement("script"),m=!1;"noModule"in f?c(a):"onbeforeload"in f?(t(),o(f,i),o(l,u),n()):c(d)}();
+    </script>
+</body>
+</html>

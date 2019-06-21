@@ -1,0 +1,28 @@
+{
+  "name": "bundles-example",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build:fallback && yarn build:modern",
+    "build:fallback": "BROWSERS=defaults webpack -p",
+    "build:modern": "BROWSERS=modern webpack -p",
+    "start": "webpack-dev-server -p"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/runtime": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "browserlist": "^1.0.1",
+    "core-js": "^3.1.4",
+    "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^1.3.0",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-manifest-plugin": "^2.0.4"
+  }
+}
